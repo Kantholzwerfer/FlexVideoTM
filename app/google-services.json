@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417396073933",
+    "project_id": "flexvideotm",
+    "storage_bucket": "flexvideotm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417396073933:android:a67057b203c84079139084",
+        "android_client_info": {
+          "package_name": "com.example.flexvideotm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417396073933-v08pjilmorv6bbrq8g2f57ofm0lausde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC-Zpx0jXrk2XxVIYs-mu4K3mB3hGn2WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417396073933-v08pjilmorv6bbrq8g2f57ofm0lausde.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
