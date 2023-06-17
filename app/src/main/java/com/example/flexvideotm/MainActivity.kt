@@ -74,7 +74,6 @@ public class MainActivity : AppCompatActivity() {
 //                onResult = { uri -> selectedImageUri = uri }
 //            )
 //        }
-
     }
 
     private fun replaceFragment(fragment : Fragment){
