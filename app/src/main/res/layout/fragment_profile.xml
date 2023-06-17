@@ -131,17 +131,16 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/textView4"
+                                android:id="@+id/textViewAlter"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="E-Mail:"
+                                android:text="Alter:"
                                 android:textColor="#182693"
-                                android:textSize="18sp"
-                                />
+                                android:textSize="18sp" />
 
                             <TextView
-                                android:id="@+id/textView5"
+                                android:id="@+id/textViewAlterWert"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -157,7 +156,103 @@
                             android:id="@+id/view"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_weight="1" />
+                            android:background="#D9D9D9"
+                            android:layout_margin="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewGewicht"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Gewicht(KG):"
+                                android:textColor="#182693"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textViewGewichtWert"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="86"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewWunschgewicht"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Wunschgewicht(KG):"
+                                android:textColor="#182693"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textViewWunschgewichtWert"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="93"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="#D9D9D9" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewKoerperfettanteil"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Körperfettanteil(%):"
+                                android:textColor="#182693"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textViewKoerperfettanteilWert"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="16"
+                                android:textAlignment="viewEnd"
+                                android:textColor="#5B5B5B"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view4"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="#D9D9D9" />
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
