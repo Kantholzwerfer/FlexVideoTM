@@ -1,10 +1,18 @@
 package com.example.flexvideotm
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.fragment.app.Fragment
 import com.example.flexvideotm.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -57,6 +65,16 @@ public class MainActivity : AppCompatActivity() {
 
             true
         }
+        setContent{
+            var selectedImageUri by remember {
+                mutableStateOf<Uri?>(null)
+            }
+            val singlePhotoPickerLauncher = rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.PickVisualMedia(),
+                onResult = { uri -> selectedImageUri = uri }
+            )
+        }
+
     }
 
     private fun replaceFragment(fragment : Fragment){

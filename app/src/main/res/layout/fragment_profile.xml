@@ -43,8 +43,8 @@
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="32dp"
                         android:background="@drawable/profile"
                         android:elevation="5dp"
@@ -52,6 +52,19 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:src="@drawable/profile" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="70dp"
+                        android:layout_height="49dp"
+                        android:backgroundTint="#000000"
+                        android:elevation="20dp"
+                        app:icon="@android:drawable/ic_menu_edit"
+                        app:iconTint="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                     <TextView
                         android:id="@+id/textView"
