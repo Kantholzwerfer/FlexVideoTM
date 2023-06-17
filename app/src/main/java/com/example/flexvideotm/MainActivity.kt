@@ -65,15 +65,15 @@ public class MainActivity : AppCompatActivity() {
 
             true
         }
-        setContent{
-            var selectedImageUri by remember {
-                mutableStateOf<Uri?>(null)
-            }
-            val singlePhotoPickerLauncher = rememberLauncherForActivityResult(
-                contract = ActivityResultContracts.PickVisualMedia(),
-                onResult = { uri -> selectedImageUri = uri }
-            )
-        }
+//        setContent{
+//            var selectedImageUri by remember {
+//                mutableStateOf<Uri?>(null)
+//            }
+//            val singlePhotoPickerLauncher = rememberLauncherForActivityResult(
+//                contract = ActivityResultContracts.PickVisualMedia(),
+//                onResult = { uri -> selectedImageUri = uri }
+//            )
+//        }
 
     }
 
