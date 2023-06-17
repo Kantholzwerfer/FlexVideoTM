@@ -1,10 +1,19 @@
 package com.example.flexvideotm
+//package com.gtappdevelopers.kotlingfgproject
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
+import androidx.appcompat.app.AppCompatActivity
+import com.jjoe64.graphview.GraphView
+import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,18 +25,24 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Home.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Home : Fragment() {
+@SuppressLint("ParcelCreator")
+class Home() : Fragment(), Parcelable {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    constructor(parcel: Parcel) : this() {
+        param1 = parcel.readString()
+        param2 = parcel.readString()
     }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        arguments?.let {
+//            param1 = it.getString(ARG_PARAM1)
+//            param2 = it.getString(ARG_PARAM2)
+//        }
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,10 +65,100 @@ class Home : Fragment() {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             Home().apply {
-                arguments = Bundle().apply {
+                var arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
-}
+
+
+    class HomeGraphics() : AppCompatActivity(), Parcelable {
+
+        //on below line we are creating
+        // variables for our graph view
+        lateinit var lineGraphView: GraphView
+
+        constructor(parcel: Parcel) : this() {
+
+        }
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.fragment_home)
+
+            // on below line we are initializing
+            // our variable with their ids.
+            lineGraphView = findViewById(R.id.idGraphView)
+
+            // on below line we are adding data to our graph view.
+            val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+                arrayOf(
+                    // on below line we are adding
+                    // each point on our x and y axis.
+                    DataPoint(0.0, 1.0),
+                    DataPoint(1.0, 3.0),
+                    DataPoint(2.0, 4.0),
+                    DataPoint(3.0, 9.0),
+                    DataPoint(4.0, 6.0),
+                    DataPoint(5.0, 3.0),
+                    DataPoint(6.0, 6.0),
+                    DataPoint(7.0, 1.0),
+                    DataPoint(8.0, 2.0)
+                )
+            )
+
+            // on below line adding animation
+//            lineGraphView.animate()
+
+            // on below line we are setting scrollable
+            // for point graph view
+            lineGraphView.viewport.isScrollable = true
+
+            // on below line we are setting scalable.
+//            lineGraphView.viewport.isScalable = true
+
+            // on below line we are setting scalable y
+            lineGraphView.viewport.setScalableY(true)
+
+            // on below line we are setting scrollable y
+            lineGraphView.viewport.setScrollableY(true)
+
+            // on below line we are setting color for series.
+            series.color = R.color.purple_200
+
+            // on below line we are adding
+            // data series to our graph view.
+            lineGraphView.addSeries(series)
+        }
+
+        override fun writeToParcel(parcel: Parcel, flags: Int) {
+
+        }
+
+        override fun describeContents(): Int {
+            return 0
+        }
+
+        companion object CREATOR : Parcelable.Creator<Home> {
+            override fun createFromParcel(parcel: Parcel): Home {
+                return Home(parcel)
+            }
+
+            override fun newArray(size: Int): Array<Home?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(param1)
+        parcel.writeString(param2)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    }
+
