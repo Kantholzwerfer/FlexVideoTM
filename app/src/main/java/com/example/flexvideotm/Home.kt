@@ -92,19 +92,36 @@ class Home() : Fragment(), Parcelable {
             lineGraphView = findViewById(R.id.idGraphView)
 
             // on below line we are adding data to our graph view.
-            val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+            val seriesWeight: LineGraphSeries<DataPoint> = LineGraphSeries(
                 arrayOf(
                     // on below line we are adding
                     // each point on our x and y axis.
-                    DataPoint(0.0, 1.0),
-                    DataPoint(1.0, 3.0),
-                    DataPoint(2.0, 4.0),
-                    DataPoint(3.0, 9.0),
-                    DataPoint(4.0, 6.0),
-                    DataPoint(5.0, 3.0),
-                    DataPoint(6.0, 6.0),
-                    DataPoint(7.0, 1.0),
-                    DataPoint(8.0, 2.0)
+                    DataPoint(0.0, 75.0),
+                    DataPoint(1.0, 75.3),
+                    DataPoint(2.0, 74.8),
+                    DataPoint(3.0, 74.3),
+                    DataPoint(4.0, 74.9),
+                    DataPoint(5.0, 74.0),
+                    DataPoint(6.0, 74.2),
+                    DataPoint(7.0, 73.9),
+                    DataPoint(8.0, 73.5)
+                )
+            )
+
+            // on below line we are adding data to our graph view.
+            val seriesGoal: LineGraphSeries<DataPoint> = LineGraphSeries(
+                arrayOf(
+                    // on below line we are adding
+                    // each point on our x and y axis.
+                    DataPoint(0.0, 73.0),
+                    DataPoint(1.0, 73.0),
+                    DataPoint(2.0, 73.0),
+                    DataPoint(3.0, 73.0),
+                    DataPoint(4.0, 73.0),
+                    DataPoint(5.0, 73.0),
+                    DataPoint(6.0, 73.0),
+                    DataPoint(7.0, 73.0),
+                    DataPoint(8.0, 73.0)
                 )
             )
 
@@ -125,11 +142,13 @@ class Home() : Fragment(), Parcelable {
             lineGraphView.viewport.setScrollableY(true)
 
             // on below line we are setting color for series.
-            series.color = R.color.purple_200
+            seriesWeight.color = R.color.teal_200
+            seriesGoal.color = R.color.black
 
             // on below line we are adding
             // data series to our graph view.
-            lineGraphView.addSeries(series)
+            lineGraphView.addSeries(seriesWeight)
+            lineGraphView.addSeries(seriesGoal)
         }
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {
