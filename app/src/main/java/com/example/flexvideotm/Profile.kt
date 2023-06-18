@@ -80,6 +80,7 @@ class Profile : Fragment() {
         wunschgewichtEdit = view.findViewById(R.id.editWunschgewicht)
         fettanteilEdit = view.findViewById(R.id.editKoerperfettanteil)
         wunschfettanteilEdit = view.findViewById(R.id.editWunschkoerperfettanteil)
+
         buttonSaveProfile = view.findViewById(R.id.buttonSaveProfile)
         buttonChangeProfile = view.findViewById(R.id.buttonChangeProfile)
 
@@ -89,13 +90,29 @@ class Profile : Fragment() {
             buttonSaveProfile.visibility = View.VISIBLE
             buttonSaveProfile.isClickable = true
 
-            geschlechtView.isEnabled = true
-            alterView.isEnabled = true
-            koerpergroesseView.isEnabled = true
-            gewichtView.isEnabled = true
-            wunschgewichtView.isEnabled = true
-            fettanteilView.isEnabled = true
-            wunschfettanteilView.isEnabled = true
+            geschlechtView.visibility = View.INVISIBLE
+            alterView.visibility = View.INVISIBLE
+            koerpergroesseView.visibility = View.INVISIBLE
+            gewichtView.visibility = View.INVISIBLE
+            wunschgewichtView.visibility = View.INVISIBLE
+            fettanteilView.visibility = View.INVISIBLE
+            wunschfettanteilView.visibility = View.INVISIBLE
+
+            geschlechtEdit.visibility = View.VISIBLE
+            alterEdit.visibility = View.VISIBLE
+            koerpergroesseEdit.visibility = View.VISIBLE
+            gewichtEdit.visibility = View.VISIBLE
+            wunschgewichtEdit.visibility = View.VISIBLE
+            fettanteilEdit.visibility = View.VISIBLE
+            wunschfettanteilEdit.visibility = View.VISIBLE
+
+            geschlechtEdit.isEnabled = true
+            alterEdit.isEnabled = true
+            koerpergroesseEdit.isEnabled = true
+            gewichtEdit.isEnabled = true
+            wunschgewichtEdit.isEnabled = true
+            fettanteilEdit.isEnabled = true
+            wunschfettanteilEdit.isEnabled = true
         }
 
         buttonSaveProfile.setOnClickListener {
@@ -104,13 +121,38 @@ class Profile : Fragment() {
             buttonSaveProfile.visibility = View.INVISIBLE
             buttonSaveProfile.isClickable = false
 
-            geschlechtView.isEnabled = false
-            alterView.isEnabled = false
-            koerpergroesseView.isEnabled = false
-            gewichtView.isEnabled = false
-            wunschgewichtView.isEnabled = false
-            fettanteilView.isEnabled = false
-            wunschfettanteilView.isEnabled = false
+            geschlechtView.visibility = View.VISIBLE
+            alterView.visibility = View.VISIBLE
+            koerpergroesseView.visibility = View.VISIBLE
+            gewichtView.visibility = View.VISIBLE
+            wunschgewichtView.visibility = View.VISIBLE
+            fettanteilView.visibility = View.VISIBLE
+            wunschfettanteilView.visibility = View.VISIBLE
+
+            geschlechtEdit.visibility = View.INVISIBLE
+            alterEdit.visibility = View.INVISIBLE
+            koerpergroesseEdit.visibility = View.INVISIBLE
+            gewichtEdit.visibility = View.INVISIBLE
+            wunschgewichtEdit.visibility = View.INVISIBLE
+            fettanteilEdit.visibility = View.INVISIBLE
+            wunschfettanteilEdit.visibility = View.INVISIBLE
+
+            geschlechtEdit.isEnabled = false
+            alterEdit.isEnabled = false
+            koerpergroesseEdit.isEnabled = false
+            gewichtEdit.isEnabled = false
+            wunschgewichtEdit.isEnabled = false
+            fettanteilEdit.isEnabled = false
+            wunschfettanteilEdit.isEnabled = false
+
+            geschlechtEdit.clearFocus()
+            alterEdit.clearFocus()
+            koerpergroesseEdit.clearFocus()
+            gewichtEdit.clearFocus()
+            wunschgewichtEdit.clearFocus()
+            fettanteilEdit.clearFocus()
+            wunschfettanteilEdit.clearFocus()
+
             saveData()
             loadData()
         }
