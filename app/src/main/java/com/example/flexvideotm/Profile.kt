@@ -1,16 +1,20 @@
 package com.example.flexvideotm
 
+import com.example.flexvideotm.R
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import android.widget.ScrollView
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,6 +37,7 @@ private lateinit var fettanteilEdit: EditText
 private lateinit var wunschfettanteilEdit: EditText
 private lateinit var buttonChangeProfile: Button
 private lateinit var buttonSaveProfile: Button
+private lateinit var scrollMaster: ScrollView
 
 
 /**
@@ -80,6 +85,7 @@ class Profile : Fragment() {
         wunschgewichtEdit = view.findViewById(R.id.editWunschgewicht)
         fettanteilEdit = view.findViewById(R.id.editKoerperfettanteil)
         wunschfettanteilEdit = view.findViewById(R.id.editWunschkoerperfettanteil)
+        scrollMaster = view.findViewById(R.id.scrollMaster)
 
         buttonSaveProfile = view.findViewById(R.id.buttonSaveProfile)
         buttonChangeProfile = view.findViewById(R.id.buttonChangeProfile)
@@ -113,6 +119,14 @@ class Profile : Fragment() {
             wunschgewichtEdit.isEnabled = true
             fettanteilEdit.isEnabled = true
             wunschfettanteilEdit.isEnabled = true
+
+            geschlechtEdit.clearFocus()
+            alterEdit.clearFocus()
+            koerpergroesseEdit.clearFocus()
+            gewichtEdit.clearFocus()
+            wunschgewichtEdit.clearFocus()
+            fettanteilEdit.clearFocus()
+            wunschfettanteilEdit.clearFocus()
         }
 
         buttonSaveProfile.setOnClickListener {
@@ -154,11 +168,12 @@ class Profile : Fragment() {
             wunschfettanteilEdit.clearFocus()
 
             saveData()
-            loadData()
+            //loadData()
+            //scrollMaster.scrollTo(0,0)
         }
 
         loadData()
-
+        scrollMaster.scrollTo(0,0)
     }
 
     private fun saveData() {
@@ -169,7 +184,6 @@ class Profile : Fragment() {
         val insertedWunschgewicht : String = wunschgewichtEdit.text.toString()
         val insertedFettanteil : String = fettanteilEdit.text.toString()
         val insertedWunschfettanteil : String = wunschfettanteilEdit.text.toString()
-        //testView.text = insertedText
 
         val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = sharedPreferences.edit()
@@ -182,7 +196,20 @@ class Profile : Fragment() {
             putString("FETTANTEIL_KEY", insertedFettanteil)
             putString("WUNSCHFETTANTEIL_KEY", insertedWunschfettanteil)
         }.apply()
+
+        val mainActivity = requireActivity() as MainActivity
+        val profileFragment = Profile() // Replace with the desired fragment
+        mainActivity.replaceFragment(profileFragment)
     }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = childFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+    }
+
+
 
     private fun loadData() {
         val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
@@ -209,6 +236,14 @@ class Profile : Fragment() {
         wunschgewichtEdit.setText(savedWunschgewicht)
         fettanteilEdit.setText(savedFettanteil)
         wunschfettanteilEdit.setText(savedWunschfettanteil)
+
+        geschlechtEdit.clearFocus()
+        alterEdit.clearFocus()
+        koerpergroesseEdit.clearFocus()
+        gewichtEdit.clearFocus()
+        wunschgewichtEdit.clearFocus()
+        fettanteilEdit.clearFocus()
+        wunschfettanteilEdit.clearFocus()
     }
 
     companion object {

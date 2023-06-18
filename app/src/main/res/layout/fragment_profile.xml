@@ -10,6 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ScrollView
+        android:id="@+id/scrollMaster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -23,23 +24,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="300dp"
+                    android:background="@drawable/top_background"
+                    android:elevation="0dp"
+                    android:src="@drawable/top_background"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonChangeProfile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="invisible" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout6"
                         android:layout_width="match_parent"
-                        android:layout_height="360dp"
+                        android:layout_height="300dp"
                         android:background="@drawable/top_background"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible">
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -47,7 +63,7 @@
                         android:id="@+id/imageView"
                         android:layout_width="130dp"
                         android:layout_height="130dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/profile"
                         android:elevation="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:elevation="5dp"
                         android:text="Nick Edward"
                         android:textColor="#ffffff"
                         android:textSize="20sp"
@@ -85,6 +102,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:elevation="5dp"
                         android:text="nickedward@gmail.com"
                         android:textColor="#ffffff"
                         android:textSize="18sp"
@@ -96,6 +114,7 @@
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
+                        android:elevation="4dp"
                         android:scaleType="fitStart"
                         android:src="@drawable/circles"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="390dp"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/white_background"
@@ -179,7 +198,7 @@
                                 <EditText
                                     android:id="@+id/editGeschlecht"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="10"
@@ -229,7 +248,7 @@
                                 <EditText
                                     android:id="@+id/editAlter"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -278,7 +297,7 @@
                                 <EditText
                                     android:id="@+id/editGroesse"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -334,7 +353,7 @@
                                 <EditText
                                     android:id="@+id/editGewicht"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -383,7 +402,7 @@
                                 <EditText
                                     android:id="@+id/editWunschgewicht"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -439,7 +458,7 @@
                                 <EditText
                                     android:id="@+id/editKoerperfettanteil"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -488,7 +507,7 @@
                                 <EditText
                                     android:id="@+id/editWunschkoerperfettanteil"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
+                                    android:layout_height="37dp"
                                     android:layout_gravity="end"
                                     android:layout_weight="1"
                                     android:ems="6"
@@ -510,25 +529,29 @@
                     android:id="@+id/buttonChangeProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginEnd="24dp"
                     android:background="@drawable/edit_profile_button"
                     android:text="Profil Anpassen"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
                 <Button
                     android:id="@+id/buttonSaveProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginEnd="24dp"
                     android:background="@drawable/edit_profile_button"
                     android:text="Auswahl Speichern"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
