@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +33,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
                         android:layout_width="match_parent"
                         android:layout_height="360dp"
                         android:background="@drawable/top_background"
@@ -156,15 +158,39 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewGeschlechtWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Männlich"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewGeschlechtWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="Männlich"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp"
+                                    android:visibility="visible" />
+
+                                <EditText
+                                    android:id="@+id/editGeschlecht"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -183,15 +209,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewAlterWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="21"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewAlterWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="21"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editAlter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -210,15 +258,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewGroesseWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="187"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewGroesseWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="187"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editGroesse"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -244,15 +314,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewGewichtWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="86"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewGewichtWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="86"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editGewicht"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -271,15 +363,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewWunschgewichtWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="93"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewWunschgewichtWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="93"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editWunschgewicht"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -305,15 +419,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewKoerperfettanteilWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="16"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewKoerperfettanteilWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="16"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editKoerperfettanteil"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -332,15 +468,37 @@
                                 android:textColor="#182693"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/textViewWunschKoerperfettanteilWert"
+                            <FrameLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="10"
-                                android:textAlignment="viewEnd"
-                                android:textColor="#5B5B5B"
-                                android:textSize="16sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="end"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/textViewWunschKoerperfettanteilWert"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:text="10"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="#5B5B5B"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/editWunschkoerperfettanteil"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_gravity="end"
+                                    android:layout_weight="1"
+                                    android:ems="6"
+                                    android:enabled="false"
+                                    android:inputType="textPersonName"
+                                    android:text="test"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:visibility="invisible" />
+                            </FrameLayout>
 
                         </LinearLayout>
 
@@ -348,18 +506,34 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <Button
+                    android:id="@+id/buttonChangeProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_profile_button"
+                    android:text="Profil Anpassen"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+                <Button
+                    android:id="@+id/buttonSaveProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/edit_profile_button"
+                    android:text="Auswahl Speichern"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                    android:visibility="invisible"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:background="@drawable/edit_profile_button"
-                android:text="Profil Anpassen" />
+
+
+
 
         </LinearLayout>
     </ScrollView>
