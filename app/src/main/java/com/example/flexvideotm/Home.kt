@@ -72,7 +72,7 @@ class Home() : Fragment(), Parcelable {
             }
     }
 
-
+// idee von chatgpt, die klasse komplett entfernen und durch einen setgraph() methode zu ersetzten
     class HomeGraphics() : AppCompatActivity(), Parcelable {
 
         //on below line we are creating
@@ -97,7 +97,7 @@ class Home() : Fragment(), Parcelable {
                     // on below line we are adding
                     // each point on our x and y axis.
                     DataPoint(0.0, 75.0),
-                    DataPoint(1.0, 75.3),
+                    DataPoint(0.2, 1.0),
                     DataPoint(2.0, 74.8),
                     DataPoint(3.0, 74.3),
                     DataPoint(4.0, 74.9),
@@ -114,7 +114,7 @@ class Home() : Fragment(), Parcelable {
                     // on below line we are adding
                     // each point on our x and y axis.
                     DataPoint(0.0, 73.0),
-                    DataPoint(1.0, 73.0),
+                    DataPoint(0.4, 1.5),
                     DataPoint(2.0, 73.0),
                     DataPoint(3.0, 73.0),
                     DataPoint(4.0, 73.0),
@@ -133,7 +133,7 @@ class Home() : Fragment(), Parcelable {
             lineGraphView.viewport.isScrollable = true
 
             // on below line we are setting scalable.
-//            lineGraphView.viewport.isScalable = true
+            lineGraphView.viewport.isScalable = true
 
             // on below line we are setting scalable y
             lineGraphView.viewport.setScalableY(true)
@@ -149,6 +149,14 @@ class Home() : Fragment(), Parcelable {
             // data series to our graph view.
             lineGraphView.addSeries(seriesWeight)
             lineGraphView.addSeries(seriesGoal)
+
+            // Automatische Anpassung der Skalierung
+            lineGraphView.viewport.isYAxisBoundsManual = true
+            lineGraphView.viewport.setMinX(0.0)
+            lineGraphView.viewport.setMaxX(8.0)
+            lineGraphView.viewport.setMinY(73.0)
+            lineGraphView.viewport.setMaxY(75.5)
+
         }
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {

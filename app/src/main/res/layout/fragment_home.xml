@@ -10,6 +10,25 @@
     tools:context=".Home">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/idGraphView"
+            android:layout_width="match_parent"
+            android:layout_height="367dp"
+            android:layout_marginTop="40dp" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/idGraphView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/idTVHead"
         android:layout_width="match_parent"
@@ -22,11 +41,5 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
-
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/idGraphView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp" />
 
 </FrameLayout>
