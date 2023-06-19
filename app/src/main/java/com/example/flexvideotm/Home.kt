@@ -69,25 +69,7 @@ class Home() : Fragment(), Parcelable {
             )
         )
 
-        setupGraph(seriesWeight)
-
-
-        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
-
-
-        //val seriesWeight = LineGraphSeries<DataPoint>(arrayOf(DataPoint(0.0, 75.0), DataPoint(1.0, 75.3)))
-        val x = 15.0
-        val y = 71.8
-
-        addDataPointToSeries(seriesWeight, x, y)
-    }
-
-
-    fun setupGraph(seriesWeight: LineGraphSeries<DataPoint>) {
-        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
-
-
-        val seriesGoal = LineGraphSeries<DataPoint>(
+        val seriesWeightGoal = LineGraphSeries<DataPoint>(
             arrayOf(
                 DataPoint(0.0, 73.0),
                 DataPoint(1.0, 73.0),
@@ -101,11 +83,44 @@ class Home() : Fragment(), Parcelable {
             )
         )
 
+        setupGraph(seriesWeight,seriesWeightGoal)
+
+
+        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
+
+
+        //val seriesWeight = LineGraphSeries<DataPoint>(arrayOf(DataPoint(0.0, 75.0), DataPoint(1.0, 75.3)))
+        val x = 15.0
+        val y = 71.8
+
+        addDataPointToSeries(seriesWeight, x, y)
+        addDataPointToSeries(seriesWeightGoal,x,y)
+    }
+
+
+    fun setupGraph(seriesWeight: LineGraphSeries<DataPoint>,seriesWeightGoal: LineGraphSeries<DataPoint>) {
+        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
+
+
+//        val seriesGoal = LineGraphSeries<DataPoint>(
+//            arrayOf(
+//                DataPoint(0.0, 73.0),
+//                DataPoint(1.0, 73.0),
+//                DataPoint(2.0, 73.0),
+//                DataPoint(3.0, 73.0),
+//                DataPoint(4.0, 73.0),
+//                DataPoint(5.0, 73.0),
+//                DataPoint(6.0, 73.0),
+//                DataPoint(7.0, 73.0),
+//                DataPoint(11.0, 70.0)
+//            )
+//        )
+
         seriesWeight.color = resources.getColor(R.color.white)
-        seriesGoal.color = resources.getColor(R.color.black)
+        seriesWeightGoal.color = resources.getColor(R.color.black)
 
         lineGraphView.addSeries(seriesWeight)
-        lineGraphView.addSeries(seriesGoal)
+        lineGraphView.addSeries(seriesWeightGoal)
 
         lineGraphView.viewport.isScrollable = true
         lineGraphView.viewport.isScalable = true
