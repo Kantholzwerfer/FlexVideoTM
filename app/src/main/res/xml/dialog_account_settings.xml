@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Accounteinstellungen"
+        android:text="Bitte geben Sie Ihre Änderungen ein:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
@@ -26,17 +26,5 @@
         android:layout_height="wrap_content"
         android:hint="Neues Passwort"
         android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/confirmButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bestätigen" />
-
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Abbrechen" />
 
 </LinearLayout>
