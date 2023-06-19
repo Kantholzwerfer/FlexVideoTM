@@ -1,0 +1,20 @@
+Vielen Dank, dass Sie unsere App nutzen! Der Schutz Ihrer persönlichen Daten hat für uns höchste Priorität. In dieser Datenschutzerklärung möchten wir Sie darüber informieren, wie wir mit Ihren Daten umgehen und welche Maßnahmen wir ergreifen, um die Vertraulichkeit und Integrität Ihrer Informationen zu gewährleisten.
+
+1. Datensammlung und Verwendung:
+Wir erfassen bestimmte personenbezogene Daten von Ihnen, um Ihnen eine optimale Nutzung unserer App zu ermöglichen. Diese Daten werden lokal auf Ihrem Gerät gespeichert und nicht an Dritte weitergegeben, im Internet veröffentlicht oder anderweitig weitergegeben. Wir verwenden Ihre personenbezogenen Daten nur für interne Zwecke, um die Funktionalität der App zu verbessern und Ihnen personalisierte Inhalte bereitzustellen.
+
+2. Sicherheit und Integrität:
+Der Schutz der Integrität und Vertraulichkeit Ihrer eingegebenen Daten liegt uns am Herzen. Unsere App ist ausreichend abgesichert, um den Zugriff von außen oder durch unbefugte Personen zu verhindern, obwohl wir keinen Server verwenden. Wir haben umfangreiche Sicherheitsmaßnahmen implementiert, um die Vertraulichkeit und Integrität Ihrer Daten zu gewährleisten.
+
+3. Verwendung von Cookies:
+Unsere App verwendet keine Cookies oder ähnliche Tracking-Technologien. Daher erfassen wir keine Informationen über Ihr Nutzungsverhalten oder speichern persönliche Daten mithilfe von Cookies.
+
+4. Externe Links:
+Bitte beachten Sie, dass unsere App möglicherweise Links zu externen Websites oder Diensten enthält. Diese Datenschutzerklärung gilt nicht für solche Websites oder Dienste, und wir übernehmen keine Verantwortung für deren Datenschutzpraktiken. Wir empfehlen Ihnen, die Datenschutzerklärungen der verlinkten Websites oder Dienste zu lesen, um sich über deren Umgang mit Ihren Daten zu informieren.
+
+5. Änderungen dieser Datenschutzerklärung:
+Wir behalten uns das Recht vor, diese Datenschutzerklärung jederzeit zu ändern oder zu aktualisieren. Über wesentliche Änderungen werden wir Sie per E-Mail oder durch eine Benachrichtigung in der App informieren. Bitte überprüfen Sie regelmäßig diese Datenschutzerklärung, um auf dem neuesten Stand zu bleiben.
+
+Abschließend möchten wir Ihnen versichern, dass wir alles in unserer Macht Stehende tun, um sicherzustellen, dass Ihre persönlichen Daten geschützt sind und nicht missbraucht werden. Wir danken Ihnen für Ihr Vertrauen und stehen Ihnen gerne bei weiteren Fragen zur Verfügung.
+
+Stand: 18.06.2023
