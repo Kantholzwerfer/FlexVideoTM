@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.example.flexvideotm.R
 import android.content.ContentValues
+import android.graphics.Color
 import android.os.Environment
 
 private const val CAMERA_PERMISSION_REQUEST_CODE = 100
@@ -217,6 +218,7 @@ class Exercises : Fragment() {
                     videoTextView.setPadding(0, 35, 0, 35)
                     videoTextView.textAlignment = View.TEXT_ALIGNMENT_CENTER
                     videoTextView.setTypeface(null, Typeface.BOLD)
+                    videoTextView.setBackgroundColor(Color.parseColor("#0878b6"))
 
                     linearLayout.addView(videoView)
                     linearLayout.addView(playButton)
