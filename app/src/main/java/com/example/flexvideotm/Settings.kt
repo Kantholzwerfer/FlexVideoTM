@@ -12,6 +12,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
 
 class Settings : Fragment() {
 
@@ -56,6 +60,7 @@ class Settings : Fragment() {
             }
         }
 
+        // Set initial button text based on current state
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         val initialButtonText = if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
             "Light Mode aktivieren"
@@ -68,7 +73,7 @@ class Settings : Fragment() {
     }
 
     private fun showPrivacyPolicyDialog() {
-        val privacyPolicyText = "Hier kommt der vorgefertigte Text der Datenschutzerklärung."
+        val privacyPolicyText = readPrivacyPolicyText()
 
         val dialogBuilder = AlertDialog.Builder(requireContext())
         dialogBuilder.setTitle("Datenschutzerklärung")
@@ -79,6 +84,31 @@ class Settings : Fragment() {
 
         val dialog = dialogBuilder.create()
         dialog.show()
+    }
+
+    private fun readPrivacyPolicyText(): String {
+        val inputStream: InputStream? = resources.openRawResource(R.raw.privacy_policy)
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        val stringBuilder = StringBuilder()
+        var line: String?
+
+        try {
+            while (reader.readLine().also { line = it } != null) {
+                stringBuilder.append(line)
+                stringBuilder.append('\n')
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            try {
+                inputStream?.close()
+                reader.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+
+        return stringBuilder.toString()
     }
 
     @SuppressLint("ResourceType")
