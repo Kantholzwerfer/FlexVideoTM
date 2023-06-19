@@ -15,7 +15,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:background="#0878b6">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -26,7 +27,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="#0878b6">
 
                 <VideoView
                     android:id="@+id/videoView"
