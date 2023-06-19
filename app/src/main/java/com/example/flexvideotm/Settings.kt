@@ -1,5 +1,6 @@
 package com.example.flexvideotm
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.res.Configuration
 import android.os.Bundle
@@ -54,7 +55,7 @@ class Settings : Fragment() {
                 darkModeButton.text = "Light Mode aktivieren"
             }
         }
-        
+
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         val initialButtonText = if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
             "Light Mode aktivieren"
@@ -80,6 +81,7 @@ class Settings : Fragment() {
         dialog.show()
     }
 
+    @SuppressLint("ResourceType")
     private fun showAccountSettingsDialog() {
         val dialogBuilder = AlertDialog.Builder(requireContext())
         dialogBuilder.setTitle("Accounteinstellungen")
