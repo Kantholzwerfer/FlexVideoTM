@@ -97,7 +97,7 @@ class Home() : Fragment(), Parcelable {
                 DataPoint(5.0, 73.0),
                 DataPoint(6.0, 73.0),
                 DataPoint(7.0, 73.0),
-                DataPoint(11.0, 73.0)
+                DataPoint(11.0, 70.0)
             )
         )
 
