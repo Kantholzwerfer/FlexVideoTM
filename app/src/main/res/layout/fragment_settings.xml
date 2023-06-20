@@ -35,14 +35,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dark Mode aktivieren"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/ausloggen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Ausloggen" />
+            android:text="Ausloggen"
+            android:layout_marginBottom="16dp" />
 
         <ImageView
             android:layout_width="wrap_content"
