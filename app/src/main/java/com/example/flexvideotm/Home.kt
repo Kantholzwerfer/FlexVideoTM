@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.graphics.Color
+import androidx.core.graphics.blue
+import androidx.core.graphics.red
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
@@ -55,6 +58,7 @@ class Home() : Fragment(), Parcelable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Graph für Gewicht
         val seriesWeight = LineGraphSeries<DataPoint>(
             arrayOf(
                 DataPoint(0.0, 75.0),
@@ -68,7 +72,6 @@ class Home() : Fragment(), Parcelable {
                 DataPoint(10.0, 73.5)
             )
         )
-
         val seriesWeightGoal = LineGraphSeries<DataPoint>(
             arrayOf(
                 DataPoint(0.0, 73.0),
@@ -82,39 +85,117 @@ class Home() : Fragment(), Parcelable {
                 DataPoint(11.0, 70.0)
             )
         )
+        setupGraphWeight(seriesWeight,seriesWeightGoal)
 
-        setupGraph(seriesWeight,seriesWeightGoal)
+        //Graph für Körperfettanteil
+        val seriesFat = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 35.0),
+                DataPoint(1.0, 32.0),
+                DataPoint(2.0, 30.0),
+                DataPoint(3.0, 29.0),
+                DataPoint(4.0, 27.0),
+                DataPoint(5.0, 27.0),
+                DataPoint(6.0, 25.0),
+                DataPoint(7.0, 23.0),
+                DataPoint(11.0, 22.0)
+            )
+        )
+        val seriesFatGoal = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 14.0),
+                DataPoint(1.0, 14.0),
+                DataPoint(2.0, 14.0),
+                DataPoint(3.0, 14.0),
+                DataPoint(4.0, 14.0),
+                DataPoint(5.0, 14.0),
+                DataPoint(6.0, 14.0),
+                DataPoint(7.0, 14.0),
+                DataPoint(11.0, 14.0)
+            )
+        )
+        setupGraphFat(seriesFat,seriesFatGoal)
+
+        //Graph für BMI
+        val seriesBMIUnter = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 18.5),
+                DataPoint(1.0, 18.5),
+                DataPoint(2.0, 18.5),
+                DataPoint(3.0, 18.5),
+                DataPoint(4.0, 18.5),
+                DataPoint(5.0, 18.5),
+                DataPoint(6.0, 18.5),
+                DataPoint(7.0, 18.5),
+                DataPoint(11.0, 18.5)
+            )
+        )
+        val seriesBMIUeber = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 25.0),
+                DataPoint(1.0, 25.0),
+                DataPoint(2.0, 25.0),
+                DataPoint(3.0, 25.0),
+                DataPoint(4.0, 25.0),
+                DataPoint(5.0, 25.0),
+                DataPoint(6.0, 25.0),
+                DataPoint(7.0, 25.0),
+                DataPoint(11.0, 25.0)
+            )
+        )
+        val seriesBMIAsipo = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 30.0),
+                DataPoint(1.0, 30.0),
+                DataPoint(2.0, 30.0),
+                DataPoint(3.0, 30.0),
+                DataPoint(4.0, 30.0),
+                DataPoint(5.0, 30.0),
+                DataPoint(6.0, 30.0),
+                DataPoint(7.0, 30.0),
+                DataPoint(11.0, 30.0)
+            )
+        )
+        val height = 178
+        val weight = 78
+        val BMI = weight / ((height.toDouble() / 100) * (height.toDouble() / 100))
+        val seriesBMI = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, BMI),
+                DataPoint(1.0, BMI),
+                DataPoint(2.0, BMI),
+                DataPoint(3.0, BMI),
+                DataPoint(4.0, BMI),
+                DataPoint(5.0, BMI),
+                DataPoint(6.0, BMI),
+                DataPoint(7.0, BMI),
+                DataPoint(11.0, BMI)
+            )
+        )
+
+        setupGraphBMI(seriesBMIUnter,seriesBMIUeber,seriesBMIAsipo,seriesBMI)
 
 
-        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
 
 
+        //val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
         //val seriesWeight = LineGraphSeries<DataPoint>(arrayOf(DataPoint(0.0, 75.0), DataPoint(1.0, 75.3)))
-        val x = 15.0
+        val x = 16.0
         val y = 71.8
-
+        val z = 18.0
         addDataPointToSeries(seriesWeight, x, y)
         addDataPointToSeries(seriesWeightGoal,x,y)
+        addDataPointToSeries(seriesFat,x,z)
+        addDataPointToSeries(seriesFatGoal,x,14.0)
     }
 
 
-    fun setupGraph(seriesWeight: LineGraphSeries<DataPoint>,seriesWeightGoal: LineGraphSeries<DataPoint>) {
+    fun setupGraphWeight(seriesWeight: LineGraphSeries<DataPoint>,seriesWeightGoal: LineGraphSeries<DataPoint>) {
         val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
 
-
-//        val seriesGoal = LineGraphSeries<DataPoint>(
-//            arrayOf(
-//                DataPoint(0.0, 73.0),
-//                DataPoint(1.0, 73.0),
-//                DataPoint(2.0, 73.0),
-//                DataPoint(3.0, 73.0),
-//                DataPoint(4.0, 73.0),
-//                DataPoint(5.0, 73.0),
-//                DataPoint(6.0, 73.0),
-//                DataPoint(7.0, 73.0),
-//                DataPoint(11.0, 70.0)
-//            )
-//        )
+        val gridLabelRenderer = lineGraphView.gridLabelRenderer
+        gridLabelRenderer.setHorizontalAxisTitle("Kalenderwoche")
+        gridLabelRenderer.setVerticalAxisTitle("Gewicht in KG")
 
         seriesWeight.color = resources.getColor(R.color.white)
         seriesWeightGoal.color = resources.getColor(R.color.black)
@@ -133,6 +214,67 @@ class Home() : Fragment(), Parcelable {
         lineGraphView.viewport.setMaxX(8.0)
         lineGraphView.viewport.setMinY(70.0)
         lineGraphView.viewport.setMaxY(80.0)
+        lineGraphView.viewport.setYAxisBoundsManual(true)
+    }
+
+    fun setupGraphFat(seriesFat: LineGraphSeries<DataPoint>,seriesFatGoal: LineGraphSeries<DataPoint>) {
+        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView2)
+
+        val gridLabelRenderer = lineGraphView.gridLabelRenderer
+        gridLabelRenderer.setHorizontalAxisTitle("Kalenderwoche")
+        gridLabelRenderer.setVerticalAxisTitle("Körperfett in %")
+
+        seriesFat.color = resources.getColor(R.color.white)
+        seriesFatGoal.color = resources.getColor(R.color.black)
+
+        lineGraphView.addSeries(seriesFat)
+        lineGraphView.addSeries(seriesFatGoal)
+
+        lineGraphView.viewport.isScrollable = true
+        lineGraphView.viewport.isScalable = true
+        lineGraphView.viewport.setScalableY(true)
+        lineGraphView.viewport.setScrollableY(true)
+        lineGraphView.viewport.isXAxisBoundsManual = true
+
+
+        lineGraphView.viewport.setMinX(0.0)
+        lineGraphView.viewport.setMaxX(8.0)
+        lineGraphView.viewport.setMinY(8.0)
+        lineGraphView.viewport.setMaxY(40.0)
+        lineGraphView.viewport.setYAxisBoundsManual(true)
+    }
+
+    fun setupGraphBMI(seriesUnter: LineGraphSeries<DataPoint>,seriesUeber: LineGraphSeries<DataPoint>,seriesAsipo: LineGraphSeries<DataPoint>,seriesBMI: LineGraphSeries<DataPoint>) {
+        val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView3)
+
+        val gridLabelRenderer = lineGraphView.gridLabelRenderer
+        gridLabelRenderer.setHorizontalAxisTitle("Kalenderwoche")
+        gridLabelRenderer.setVerticalAxisTitle("BMI")
+
+        seriesUnter.color = android.graphics.Color.RED
+        seriesUeber.color = android.graphics.Color.YELLOW
+        seriesAsipo.color = android.graphics.Color.RED
+        seriesBMI.color = android.graphics.Color.WHITE
+
+        //seriesUnter.color = resources.getColor(R.color.red)
+        //seriesFatGoal.color = resources.getColor(R.color.black)
+
+        lineGraphView.addSeries(seriesUnter)
+        lineGraphView.addSeries(seriesUeber)
+        lineGraphView.addSeries(seriesAsipo)
+        lineGraphView.addSeries(seriesBMI)
+
+        lineGraphView.viewport.isScrollable = true
+        lineGraphView.viewport.isScalable = true
+        lineGraphView.viewport.setScalableY(true)
+        lineGraphView.viewport.setScrollableY(true)
+        lineGraphView.viewport.isXAxisBoundsManual = true
+
+
+        lineGraphView.viewport.setMinX(0.0)
+        lineGraphView.viewport.setMaxX(8.0)
+        lineGraphView.viewport.setMinY(17.0)
+        lineGraphView.viewport.setMaxY(32.0)
         lineGraphView.viewport.setYAxisBoundsManual(true)
     }
 
