@@ -41,6 +41,7 @@ private lateinit var scrollMaster: ScrollView
 private lateinit var homeFragment: Home
 
 
+
 /**
  * A simple [Fragment] subclass.
  * Use the [Profile.newInstance] factory method to
