@@ -38,6 +38,7 @@ private lateinit var wunschfettanteilEdit: EditText
 private lateinit var buttonChangeProfile: Button
 private lateinit var buttonSaveProfile: Button
 private lateinit var scrollMaster: ScrollView
+private lateinit var homeFragment: Home
 
 
 /**
@@ -176,6 +177,12 @@ class Profile : Fragment() {
         scrollMaster.scrollTo(0,0)
     }
 
+    private fun dataEntrys()
+    {
+        //val homeActivity = requireActivity() as Home
+        homeFragment = Home()
+    }
+
     private fun saveData() {
         val insertedGeschlecht : String = geschlechtEdit.text.toString()
         val insertedAlter : String = alterEdit.text.toString()
@@ -196,6 +203,8 @@ class Profile : Fragment() {
             putString("FETTANTEIL_KEY", insertedFettanteil)
             putString("WUNSCHFETTANTEIL_KEY", insertedWunschfettanteil)
         }.apply()
+
+        //dataEntrys()
 
         val mainActivity = requireActivity() as MainActivity
         val profileFragment = Profile() // Replace with the desired fragment
