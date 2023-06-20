@@ -2,9 +2,9 @@ package com.example.flexvideotm
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,18 +12,25 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import com.example.flexvideotm.databinding.ActivityMainBinding
+import com.example.flexvideotm.databinding.FragmentSettingsBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 
 class Settings : Fragment() {
-
+    private lateinit var binding: FragmentSettingsBinding
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -35,6 +42,13 @@ class Settings : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        val ausloggbtn : Button = view.findViewById<Button>(R.id.ausloggen)
+        val intent = Intent(this@Settings.requireContext(), Login::class.java)
+        ausloggbtn.setOnClickListener{
+            startActivity(intent)
+        }
+
 
         val privacySettingsButton = view.findViewById<Button>(R.id.privacySettingsButton)
         privacySettingsButton.setOnClickListener {

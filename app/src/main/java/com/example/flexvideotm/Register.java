@@ -30,11 +30,11 @@ public class Register extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        //if(currentUser != null){
+        //    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        //    startActivity(intent);
+        //    finish();
+        //}
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
