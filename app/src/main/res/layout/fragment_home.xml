@@ -21,7 +21,8 @@
             android:id="@+id/idGraphView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="40dp"
+            android:background="#0878b6" />
 
         <TextView
             android:id="@+id/idTVHead2"
@@ -39,7 +40,8 @@
         <com.jjoe64.graphview.GraphView
             android:id="@+id/idGraphView2"
             android:layout_width="match_parent"
-            android:layout_height="200dp"            />
+            android:layout_height="200dp"
+            android:background="#0878b6"/>
 
         <TextView
             android:id="@+id/idTVHead3"
@@ -58,7 +60,8 @@
             android:id="@+id/idGraphView3"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="32dp"
+            android:background="#0878b6"/>
 
     </LinearLayout>
 

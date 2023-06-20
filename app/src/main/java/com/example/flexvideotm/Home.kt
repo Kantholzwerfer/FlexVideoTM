@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
+import android.provider.ContactsContract.Data
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,8 @@ import com.jjoe64.graphview.series.LineGraphSeries
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
+public lateinit var seriesWeight : LineGraphSeries<DataPoint>
 
 /**
  * A simple [Fragment] subclass.
@@ -59,7 +62,7 @@ class Home() : Fragment(), Parcelable {
         super.onViewCreated(view, savedInstanceState)
 
         // Graph für Gewicht
-        val seriesWeight = LineGraphSeries<DataPoint>(
+        seriesWeight = LineGraphSeries<DataPoint>(
             arrayOf(
                 DataPoint(0.0, 75.0),
                 DataPoint(1.0, 75.3),
@@ -85,6 +88,8 @@ class Home() : Fragment(), Parcelable {
                 DataPoint(11.0, 70.0)
             )
         )
+
+
         setupGraphWeight(seriesWeight,seriesWeightGoal)
 
         //Graph für Körperfettanteil
