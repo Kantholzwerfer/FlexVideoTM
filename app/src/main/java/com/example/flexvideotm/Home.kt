@@ -62,50 +62,8 @@ class Home() : Fragment(), Parcelable {
         //val mainActivity = requireActivity() as MainActivity
 
 
-        val seriesWeightGoal = LineGraphSeries<DataPoint>(
-            arrayOf(
-                DataPoint(0.0, 73.0),
-                DataPoint(1.0, 73.0),
-                DataPoint(2.0, 73.0),
-                DataPoint(3.0, 73.0),
-                DataPoint(4.0, 73.0),
-                DataPoint(5.0, 73.0),
-                DataPoint(6.0, 73.0),
-                DataPoint(7.0, 73.0),
-                DataPoint(11.0, 70.0)
-            )
-        )
-
-
         setupGraphWeight(seriesWeight,seriesWeightGoal)
 
-        //Graph für Körperfettanteil
-        val seriesFat = LineGraphSeries<DataPoint>(
-            arrayOf(
-                DataPoint(0.0, 35.0),
-                DataPoint(1.0, 32.0),
-                DataPoint(2.0, 30.0),
-                DataPoint(3.0, 29.0),
-                DataPoint(4.0, 27.0),
-                DataPoint(5.0, 27.0),
-                DataPoint(6.0, 25.0),
-                DataPoint(7.0, 23.0),
-                DataPoint(11.0, 22.0)
-            )
-        )
-        val seriesFatGoal = LineGraphSeries<DataPoint>(
-            arrayOf(
-                DataPoint(0.0, 14.0),
-                DataPoint(1.0, 14.0),
-                DataPoint(2.0, 14.0),
-                DataPoint(3.0, 14.0),
-                DataPoint(4.0, 14.0),
-                DataPoint(5.0, 14.0),
-                DataPoint(6.0, 14.0),
-                DataPoint(7.0, 14.0),
-                DataPoint(11.0, 14.0)
-            )
-        )
         setupGraphFat(seriesFat,seriesFatGoal)
 
         //Graph für BMI
@@ -151,19 +109,6 @@ class Home() : Fragment(), Parcelable {
         val height = 178
         val weight = 78
         val BMI = weight / ((height.toDouble() / 100) * (height.toDouble() / 100))
-        val seriesBMI = LineGraphSeries<DataPoint>(
-            arrayOf(
-                DataPoint(0.0, BMI),
-                DataPoint(1.0, BMI),
-                DataPoint(2.0, BMI),
-                DataPoint(3.0, BMI),
-                DataPoint(4.0, BMI),
-                DataPoint(5.0, BMI),
-                DataPoint(6.0, BMI),
-                DataPoint(7.0, BMI),
-                DataPoint(11.0, BMI)
-            )
-        )
 
         setupGraphBMI(seriesBMIUnter,seriesBMIUeber,seriesBMIAsipo,seriesBMI)
 

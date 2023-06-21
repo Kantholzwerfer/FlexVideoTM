@@ -24,6 +24,10 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 
 public lateinit var seriesWeight : LineGraphSeries<DataPoint>
+public lateinit var seriesWeightGoal : LineGraphSeries<DataPoint>
+public lateinit var seriesFat: LineGraphSeries<DataPoint>
+public lateinit var seriesFatGoal : LineGraphSeries<DataPoint>
+public lateinit var seriesBMI: LineGraphSeries<DataPoint>
 
 public class MainActivity : AppCompatActivity() {
 
@@ -60,6 +64,52 @@ public class MainActivity : AppCompatActivity() {
                 DataPoint(6.0, 74.2),
                 DataPoint(7.0, 73.9),
                 DataPoint(10.0, 73.5)
+            )
+        )
+        seriesWeightGoal = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 73.0),
+                DataPoint(1.0, 73.0),
+                DataPoint(2.0, 73.0),
+                DataPoint(3.0, 73.0),
+                DataPoint(4.0, 73.0),
+                DataPoint(5.0, 73.0),
+                DataPoint(6.0, 73.0),
+                DataPoint(7.0, 73.0),
+                DataPoint(11.0, 70.0)
+            )
+        )
+        //Graph für Körperfettanteil
+        seriesFat = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 35.0),
+                DataPoint(1.0, 32.0),
+                DataPoint(2.0, 30.0),
+                DataPoint(3.0, 29.0),
+                DataPoint(4.0, 27.0),
+                DataPoint(5.0, 27.0),
+                DataPoint(6.0, 25.0),
+                DataPoint(7.0, 23.0),
+                DataPoint(11.0, 22.0)
+            )
+        )
+        seriesFatGoal = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 14.0),
+                DataPoint(1.0, 14.0),
+                DataPoint(2.0, 14.0),
+                DataPoint(3.0, 14.0),
+                DataPoint(4.0, 14.0),
+                DataPoint(5.0, 14.0),
+                DataPoint(6.0, 14.0),
+                DataPoint(7.0, 14.0),
+                DataPoint(11.0, 14.0)
+            )
+        )
+        //Graph für BMI
+        seriesBMI = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 24.6)
             )
         )
 
