@@ -83,7 +83,7 @@ public class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(Home())
+        replaceFragment(Profile())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
@@ -103,6 +103,7 @@ public class MainActivity : AppCompatActivity() {
             }
             true
         }
+        binding.bottomNavigationView.selectedItemId = R.id.profile
 //        setContent{
 //            var selectedImageUri by remember {
 //                mutableStateOf<Uri?>(null)
