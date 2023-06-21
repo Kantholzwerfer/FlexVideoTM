@@ -4,6 +4,7 @@ import com.example.flexvideotm.R
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -79,6 +80,15 @@ class Profile : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         imageView = view.findViewById(R.id.imageView)
+        val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+        val savedImageUriString = sharedPreferences.getString("image_uri", null)
+        val savedImageUri = savedImageUriString?.let { Uri.parse(it) }
+        if (savedImageUri != null)
+        {
+            imageView.setImageURI(savedImageUri)
+        }
+
+
         buttonChangeProfilePic = view.findViewById(R.id.button4)
         buttonChangeProfilePic.setOnClickListener {
 
@@ -277,6 +287,13 @@ class Profile : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         imageView.setImageURI(data?.data)
+
+        val imageUri = data?.data
+
+        val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("image_uri", imageUri.toString())
+        editor.apply()
     }
 
     companion object {
