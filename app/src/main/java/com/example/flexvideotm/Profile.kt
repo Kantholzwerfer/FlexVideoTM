@@ -16,7 +16,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.github.dhaval2404.imagepicker.ImagePicker
+//import com.github.dhaval2404.imagepicker.ImagePicker
+import com.github.drjacky.imagepicker.ImagePicker
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -83,6 +84,7 @@ class Profile : Fragment() {
 
             ImagePicker.with(this)
                 .crop()
+                .cropOval()
                 .compress(1024)
                 .maxResultSize(1080, 1080)
                 .start()
