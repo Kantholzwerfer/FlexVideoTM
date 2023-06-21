@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.auth.FirebaseAuth
+
 //import com.github.drjacky.imagepicker.ImagePicker
 
 
@@ -42,6 +44,9 @@ private lateinit var scrollMaster: ScrollView
 //private lateinit var homeFragment: Home
 private lateinit var imageView: ImageView
 private lateinit var buttonChangeProfilePic: Button
+private lateinit var nameView: TextView
+private lateinit var nameEdit: EditText
+private lateinit var emailView: TextView
 private var nummer: Double = 0.0
 
 
@@ -85,6 +90,13 @@ class Profile : Fragment() {
             imageView.setImageURI(savedImageUri)
         }
 
+        emailView = view.findViewById(R.id.textView2)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            emailView.text = user.email.toString()
+        }
+
 
         buttonChangeProfilePic = view.findViewById(R.id.button4)
         buttonChangeProfilePic.setOnClickListener {
@@ -112,6 +124,8 @@ class Profile : Fragment() {
         fettanteilEdit = view.findViewById(R.id.editKoerperfettanteil)
         wunschfettanteilEdit = view.findViewById(R.id.editWunschkoerperfettanteil)
         scrollMaster = view.findViewById(R.id.scrollMaster)
+        nameView = view.findViewById(R.id.textView)
+        nameEdit = view.findViewById(R.id.editName)
 
         buttonSaveProfile = view.findViewById(R.id.buttonSaveProfile)
         buttonChangeProfile = view.findViewById(R.id.buttonChangeProfile)
@@ -129,6 +143,7 @@ class Profile : Fragment() {
             wunschgewichtView.visibility = View.INVISIBLE
             fettanteilView.visibility = View.INVISIBLE
             wunschfettanteilView.visibility = View.INVISIBLE
+            nameView.visibility = View.INVISIBLE
 
             geschlechtEdit.visibility = View.VISIBLE
             alterEdit.visibility = View.VISIBLE
@@ -137,6 +152,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.visibility = View.VISIBLE
             fettanteilEdit.visibility = View.VISIBLE
             wunschfettanteilEdit.visibility = View.VISIBLE
+            nameEdit.visibility = View.VISIBLE
 
             geschlechtEdit.isEnabled = true
             alterEdit.isEnabled = true
@@ -145,6 +161,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.isEnabled = true
             fettanteilEdit.isEnabled = true
             wunschfettanteilEdit.isEnabled = true
+            nameEdit.isEnabled = true
 
             geschlechtEdit.clearFocus()
             alterEdit.clearFocus()
@@ -153,6 +170,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.clearFocus()
             fettanteilEdit.clearFocus()
             wunschfettanteilEdit.clearFocus()
+            nameEdit.clearFocus()
         }
 
         buttonSaveProfile.setOnClickListener {
@@ -168,6 +186,7 @@ class Profile : Fragment() {
             wunschgewichtView.visibility = View.VISIBLE
             fettanteilView.visibility = View.VISIBLE
             wunschfettanteilView.visibility = View.VISIBLE
+            nameView.visibility = View.VISIBLE
 
             geschlechtEdit.visibility = View.INVISIBLE
             alterEdit.visibility = View.INVISIBLE
@@ -176,6 +195,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.visibility = View.INVISIBLE
             fettanteilEdit.visibility = View.INVISIBLE
             wunschfettanteilEdit.visibility = View.INVISIBLE
+            nameEdit.visibility = View.INVISIBLE
 
             geschlechtEdit.isEnabled = false
             alterEdit.isEnabled = false
@@ -184,6 +204,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.isEnabled = false
             fettanteilEdit.isEnabled = false
             wunschfettanteilEdit.isEnabled = false
+            nameEdit.isEnabled = false
 
             geschlechtEdit.clearFocus()
             alterEdit.clearFocus()
@@ -192,6 +213,7 @@ class Profile : Fragment() {
             wunschgewichtEdit.clearFocus()
             fettanteilEdit.clearFocus()
             wunschfettanteilEdit.clearFocus()
+            nameEdit.clearFocus()
 
             saveData()
             //loadData()
@@ -253,6 +275,7 @@ class Profile : Fragment() {
         val insertedWunschgewicht : String = wunschgewichtEdit.text.toString()
         val insertedFettanteil : String = fettanteilEdit.text.toString()
         val insertedWunschfettanteil : String = wunschfettanteilEdit.text.toString()
+        val insertedName : String = nameEdit.text.toString()
 
         val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = sharedPreferences.edit()
@@ -264,6 +287,7 @@ class Profile : Fragment() {
             putString("WUNSCHGEWICHT_KEY", insertedWunschgewicht)
             putString("FETTANTEIL_KEY", insertedFettanteil)
             putString("WUNSCHFETTANTEIL_KEY", insertedWunschfettanteil)
+            putString("NAME_KEY", insertedName)
         }.apply()
 
         dataEntrys()
@@ -291,6 +315,7 @@ class Profile : Fragment() {
         val savedWunschgewicht : String? = sharedPreferences.getString("WUNSCHGEWICHT_KEY", "--")
         val savedFettanteil : String? = sharedPreferences.getString("FETTANTEIL_KEY", "--")
         val savedWunschfettanteil : String? = sharedPreferences.getString("WUNSCHFETTANTEIL_KEY", "--")
+        val savedName : String? = sharedPreferences.getString("NAME_KEY", "--")
 
         geschlechtView.text = savedGeschlecht
         alterView.text = savedAlter
@@ -299,6 +324,7 @@ class Profile : Fragment() {
         wunschgewichtView.text = savedWunschgewicht
         fettanteilView.text = savedFettanteil
         wunschfettanteilView.text = savedWunschfettanteil
+        nameView.text = savedName
 
         geschlechtEdit.setText(savedGeschlecht)
         alterEdit.setText(savedAlter)
@@ -307,6 +333,7 @@ class Profile : Fragment() {
         wunschgewichtEdit.setText(savedWunschgewicht)
         fettanteilEdit.setText(savedFettanteil)
         wunschfettanteilEdit.setText(savedWunschfettanteil)
+        nameEdit.setText(savedName)
 
         geschlechtEdit.clearFocus()
         alterEdit.clearFocus()
@@ -315,7 +342,7 @@ class Profile : Fragment() {
         wunschgewichtEdit.clearFocus()
         fettanteilEdit.clearFocus()
         wunschfettanteilEdit.clearFocus()
-
+        nameEdit.clearFocus()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

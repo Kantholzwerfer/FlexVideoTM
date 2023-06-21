@@ -64,16 +64,16 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="16dp"
-                        android:background="@drawable/profile"
-                        app:shapeAppearanceOverlay="@style/circular"
-                        app:strokeWidth="5dp"
-                        app:strokeColor="@color/white"
-                        android:padding="5dp"
+                        android:background="@drawable/baseline_person_24"
                         android:elevation="5dp"
+                        android:padding="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@drawable/profile" />
+                        app:shapeAppearanceOverlay="@style/circular"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="5dp"
+                        tools:src="@drawable/baseline_person_24" />
 
                     <Button
                         android:id="@+id/button4"
@@ -94,13 +94,36 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:elevation="5dp"
-                        android:text="Nick Edward"
+                        android:text="Your Name"
                         android:textColor="#ffffff"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="@+id/imageView"
                         app:layout_constraintStart_toStartOf="@+id/imageView"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView"
+                        android:visibility="visible"
+                        />
+
+                    <EditText
+                        android:id="@+id/editName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:ems="9"
+                        android:enabled="false"
+                        android:inputType="textPersonName"
+                        android:text="Your Name"
+                        android:textColor="#ffffff"
+                        android:textAlignment="viewEnd"
+                        android:textSize="16sp"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="@+id/textView"
+                        app:layout_constraintStart_toStartOf="@+id/textView"
+                        app:layout_constraintTop_toTopOf="@+id/textView"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView"
+                        />
+
 
                     <TextView
                         android:id="@+id/textView2"
