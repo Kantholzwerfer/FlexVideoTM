@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import android.widget.CalendarView
 import java.util.Calendar
+import androidx.fragment.app.FragmentManager
 
 class Calendar : Fragment() {
     private val sharedPreferencesKey = "calendar_events"
@@ -43,6 +44,7 @@ class Calendar : Fragment() {
             val date = sharedPreferences.getString("selected_date", "") ?: ""
             val entry = loadEntries(date)
             entryTextView.text = entry
+            reloadFragment()
         }
 
         return view
@@ -90,7 +92,7 @@ class Calendar : Fragment() {
         } else {
             "Kein Eintrag vorhanden"
         }
-        return entry;
+        return "$date : $entry";
     }
 
     private fun saveEntry(date: String, event: String) {
@@ -118,6 +120,13 @@ class Calendar : Fragment() {
         return String.format("%02d%02d%04d", dayOfMonth, month, year)
     }
 
+    private fun reloadFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.detach(this)
+        transaction.attach(this)
+        transaction.commit()
+    }
 
     companion object {
         private const val TAG = "Calendar"
