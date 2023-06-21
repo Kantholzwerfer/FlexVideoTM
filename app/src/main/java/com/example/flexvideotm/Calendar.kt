@@ -126,14 +126,17 @@ class Calendar : Fragment() {
         val firstDotIndex = 2
         val secondDotIndex = 5
 
-        val stringBuilder = StringBuilder(date)
-        stringBuilder.insert(firstDotIndex, ".")
-        stringBuilder.insert(secondDotIndex, ".")
+        if (date.length >= secondDotIndex) {
+            val stringBuilder = StringBuilder(date)
+            stringBuilder.insert(firstDotIndex, ".")
+            stringBuilder.insert(secondDotIndex, ".")
 
-        return stringBuilder.toString()
+            return stringBuilder.toString()
+        } else {
+            return date
+        }
     }
-
-
+    
     companion object {
         private const val TAG = "Calendar"
 
@@ -142,4 +145,3 @@ class Calendar : Fragment() {
             Calendar()
     }
 }
-
