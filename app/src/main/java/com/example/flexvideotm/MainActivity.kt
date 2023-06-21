@@ -55,55 +55,23 @@ public class MainActivity : AppCompatActivity() {
         // Graph für Gewicht
         seriesWeight = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 75.0),
-                DataPoint(1.0, 75.3),
-                DataPoint(2.0, 74.8),
-                DataPoint(3.0, 74.3),
-                DataPoint(4.0, 74.9),
-                DataPoint(5.0, 74.0),
-                DataPoint(6.0, 74.2),
-                DataPoint(7.0, 73.9),
-                DataPoint(10.0, 73.5)
+                DataPoint(0.0, 75.0)
             )
         )
         seriesWeightGoal = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 73.0),
-                DataPoint(1.0, 73.0),
-                DataPoint(2.0, 73.0),
-                DataPoint(3.0, 73.0),
-                DataPoint(4.0, 73.0),
-                DataPoint(5.0, 73.0),
-                DataPoint(6.0, 73.0),
-                DataPoint(7.0, 73.0),
-                DataPoint(11.0, 70.0)
+                DataPoint(0.0, 73.0)
             )
         )
         //Graph für Körperfettanteil
         seriesFat = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 35.0),
-                DataPoint(1.0, 32.0),
-                DataPoint(2.0, 30.0),
-                DataPoint(3.0, 29.0),
-                DataPoint(4.0, 27.0),
-                DataPoint(5.0, 27.0),
-                DataPoint(6.0, 25.0),
-                DataPoint(7.0, 23.0),
-                DataPoint(11.0, 22.0)
+                DataPoint(0.0, 35.0)
             )
         )
         seriesFatGoal = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 14.0),
-                DataPoint(1.0, 14.0),
-                DataPoint(2.0, 14.0),
-                DataPoint(3.0, 14.0),
-                DataPoint(4.0, 14.0),
-                DataPoint(5.0, 14.0),
-                DataPoint(6.0, 14.0),
-                DataPoint(7.0, 14.0),
-                DataPoint(11.0, 14.0)
+                DataPoint(0.0, 14.0)
             )
         )
         //Graph für BMI

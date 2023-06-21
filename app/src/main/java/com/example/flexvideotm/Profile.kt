@@ -42,6 +42,7 @@ private lateinit var scrollMaster: ScrollView
 //private lateinit var homeFragment: Home
 private lateinit var imageView: ImageView
 private lateinit var buttonChangeProfilePic: Button
+private var nummer: Double = 0.0
 
 
 /**
@@ -203,12 +204,40 @@ class Profile : Fragment() {
 
     private fun dataEntrys()
     {
-        //val homeActivity = requireActivity() as Home
-        //homeFragment = Home()
-        //val homeFragment = parentFragmentManager.findFragmentById(R.id.hometest) as? Home
-        //homeActivity.addDataPointToSeries(seriesWeight, 20.0, 80.0)
+        val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
+        val savedGeschlecht : String? = sharedPreferences.getString("GESCHLECHT_KEY", "0")
+        val savedAlter : String? = sharedPreferences.getString("ALTER_KEY", "0")
+        val savedGroesse : String? = sharedPreferences.getString("GROESSE_KEY", "0")
+        val savedGewicht : String? = sharedPreferences.getString("GEWICHT_KEY", "0")
+        val savedWunschgewicht : String? = sharedPreferences.getString("WUNSCHGEWICHT_KEY", "0")
+        val savedFettanteil : String? = sharedPreferences.getString("FETTANTEIL_KEY", "0")
+        val savedWunschfettanteil : String? = sharedPreferences.getString("WUNSCHFETTANTEIL_KEY", "0")
+        val forlaufendeNummer : String? = sharedPreferences.getString("FORTLAUFENDENUMMER_KEY", "0")
+
+        if (forlaufendeNummer != null) {
+            nummer = forlaufendeNummer.toDouble()
+            nummer += 1.0
+        }
+
+        val groesse = (savedGroesse?.toDouble() ?: 1.0) * (savedGroesse?.toDouble() ?: 1.0)
+        val BMI = (savedGewicht?.toDouble() ?: 1.0) / (groesse)
+
         val mainActivity = requireActivity() as MainActivity
-        mainActivity.addDataPointToSeries(seriesWeight, 20.0, 85.0)
+        if (savedGewicht != null) {
+            mainActivity.addDataPointToSeries(seriesWeight, nummer, savedGewicht.toDouble())
+        }
+        if (savedWunschgewicht != null) {
+            mainActivity.addDataPointToSeries(seriesWeightGoal, nummer, savedWunschgewicht.toDouble())
+        }
+        if (savedFettanteil != null) {
+            mainActivity.addDataPointToSeries(seriesFat, nummer, savedFettanteil.toDouble())
+        }
+        if (savedWunschfettanteil != null) {
+            mainActivity.addDataPointToSeries(seriesFatGoal, nummer, savedWunschfettanteil.toDouble())
+        }
+        mainActivity.addDataPointToSeries(seriesBMI, nummer, BMI)
+
+
 //        if (homeFragment != null)
 //        {
 //            homeFragment.addDataPointToSeries(seriesWeight, 20.0, 80.0)
