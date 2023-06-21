@@ -269,6 +269,7 @@ class Profile : Fragment() {
         wunschgewichtEdit.clearFocus()
         fettanteilEdit.clearFocus()
         wunschfettanteilEdit.clearFocus()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
