@@ -22,6 +22,7 @@ class Calendar : Fragment() {
     private lateinit var createEntryButton: Button
     private lateinit var sharedPreferences: SharedPreferences
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
