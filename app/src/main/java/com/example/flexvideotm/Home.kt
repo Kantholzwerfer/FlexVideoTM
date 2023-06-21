@@ -106,21 +106,8 @@ class Home() : Fragment(), Parcelable {
                 DataPoint(11.0, 30.0)
             )
         )
-        val height = 178
-        val weight = 78
-        val BMI = weight / ((height.toDouble() / 100) * (height.toDouble() / 100))
 
         setupGraphBMI(seriesBMIUnter,seriesBMIUeber,seriesBMIAsipo,seriesBMI)
-
-        //val lineGraphView: GraphView = requireView().findViewById(R.id.idGraphView)
-        //val seriesWeight = LineGraphSeries<DataPoint>(arrayOf(DataPoint(0.0, 75.0), DataPoint(1.0, 75.3)))
-        val x = 16.0
-        val y = 71.8
-        val z = 18.0
-//        addDataPointToSeries(seriesWeight, x, y)
-//        addDataPointToSeries(seriesWeightGoal,x,y)
-//        addDataPointToSeries(seriesFat,x,z)
-//        addDataPointToSeries(seriesFatGoal,x,14.0)
     }
 
 
@@ -147,7 +134,7 @@ class Home() : Fragment(), Parcelable {
         lineGraphView.viewport.setMinX(0.0)
         lineGraphView.viewport.setMaxX(8.0)
         lineGraphView.viewport.setMinY(70.0)
-        lineGraphView.viewport.setMaxY(80.0)
+        lineGraphView.viewport.setMaxY(100.0)
         lineGraphView.viewport.setYAxisBoundsManual(true)
 
     }
@@ -208,8 +195,8 @@ class Home() : Fragment(), Parcelable {
 
         lineGraphView.viewport.setMinX(0.0)
         lineGraphView.viewport.setMaxX(8.0)
-        lineGraphView.viewport.setMinY(17.0)
-        lineGraphView.viewport.setMaxY(32.0)
+        lineGraphView.viewport.setMinY(10.0)
+        lineGraphView.viewport.setMaxY(40.0)
         lineGraphView.viewport.setYAxisBoundsManual(true)
 
     }

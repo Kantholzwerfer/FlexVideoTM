@@ -55,29 +55,29 @@ public class MainActivity : AppCompatActivity() {
         // Graph für Gewicht
         seriesWeight = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 75.0)
+                //DataPoint(0.0, 0.0)
             )
         )
         seriesWeightGoal = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 73.0)
+                //DataPoint(0.0, 0.0)
             )
         )
         //Graph für Körperfettanteil
         seriesFat = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 35.0)
+                //DataPoint(0.0, 0.0)
             )
         )
         seriesFatGoal = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 14.0)
+                //DataPoint(0.0, 14.0)
             )
         )
         //Graph für BMI
         seriesBMI = LineGraphSeries<DataPoint>(
             arrayOf(
-                DataPoint(0.0, 24.6)
+                //DataPoint(0.0, 24.6)
             )
         )
 

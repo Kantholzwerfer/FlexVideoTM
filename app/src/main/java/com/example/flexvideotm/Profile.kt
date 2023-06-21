@@ -216,10 +216,9 @@ class Profile : Fragment() {
 
         if (forlaufendeNummer != null) {
             nummer = forlaufendeNummer.toDouble()
-            nummer += 1.0
         }
 
-        val groesse = (savedGroesse?.toDouble() ?: 1.0) * (savedGroesse?.toDouble() ?: 1.0)
+        val groesse = ((savedGroesse?.toDouble() ?: 1.0) / 100) * ((savedGroesse?.toDouble() ?: 1.0) / 100)
         val BMI = (savedGewicht?.toDouble() ?: 1.0) / (groesse)
 
         val mainActivity = requireActivity() as MainActivity
@@ -237,15 +236,13 @@ class Profile : Fragment() {
         }
         mainActivity.addDataPointToSeries(seriesBMI, nummer, BMI)
 
+        nummer += 1.0
 
-//        if (homeFragment != null)
-//        {
-//            homeFragment.addDataPointToSeries(seriesWeight, 20.0, 80.0)
-//        }
-//        else
-//        {
-//            Toast.makeText(context, "Mist", Toast.LENGTH_SHORT).show()
-//        }
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+        editor.apply{
+            putString("FORTLAUFENDENUMMER_KEY", nummer.toString())
+
+        }.apply()
     }
 
     private fun saveData() {
