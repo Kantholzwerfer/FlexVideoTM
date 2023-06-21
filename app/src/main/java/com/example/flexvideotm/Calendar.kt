@@ -14,8 +14,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import android.widget.CalendarView
-import java.util.Calendar
-import androidx.fragment.app.FragmentManager
 
 class Calendar : Fragment() {
     private val sharedPreferencesKey = "calendar_events"
