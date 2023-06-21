@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            android:text="Privacy Settings" />
+            android:text="Datenschutzerklärung" />
 
         <Button
             android:id="@+id/accountSettingsButton"
