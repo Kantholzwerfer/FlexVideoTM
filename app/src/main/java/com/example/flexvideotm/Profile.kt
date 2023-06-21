@@ -2,6 +2,7 @@ package com.example.flexvideotm
 
 import com.example.flexvideotm.R
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.github.dhaval2404.imagepicker.ImagePicker
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,6 +42,8 @@ private lateinit var buttonChangeProfile: Button
 private lateinit var buttonSaveProfile: Button
 private lateinit var scrollMaster: ScrollView
 private lateinit var homeFragment: Home
+private lateinit var imageView: ImageView
+private lateinit var buttonChangeProfilePic: Button
 
 
 /**
@@ -71,6 +76,17 @@ class Profile : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        imageView = view.findViewById(R.id.imageView)
+        buttonChangeProfilePic = view.findViewById(R.id.button4)
+        buttonChangeProfilePic.setOnClickListener {
+
+            ImagePicker.with(this)
+                .crop()
+                .compress(1024)
+                .maxResultSize(1080, 1080)
+                .start()
+        }
 
         geschlechtView = view.findViewById(R.id.textViewGeschlechtWert)
         alterView = view.findViewById(R.id.textViewAlterWert)
@@ -253,6 +269,11 @@ class Profile : Fragment() {
         wunschgewichtEdit.clearFocus()
         fettanteilEdit.clearFocus()
         wunschfettanteilEdit.clearFocus()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        imageView.setImageURI(data?.data)
     }
 
     companion object {
