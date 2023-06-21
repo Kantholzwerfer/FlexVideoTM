@@ -45,10 +45,25 @@ class Calendar : Fragment() {
             val date = sharedPreferences.getString("selected_date", "") ?: ""
             val entry = loadEntries(date)
             entryTextView.text = entry
-            reloadFragment()
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val calendarView2 = view.findViewById<CalendarView>(R.id.calendarView)
+        calendarView2.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val formattedDate = String.format("%02d%02d%04d", dayOfMonth, month + 1, year)
+            saveSelectedDate(formattedDate)
+            val entryTextView = view.findViewById<TextView>(R.id.TextView)
+            val date = sharedPreferences.getString("selected_date", "") ?: ""
+            val entry = loadEntries(date)
+            entryTextView.text = entry
+            val mainActivity = requireActivity() as MainActivity
+            val kalendarFragment = Calendar()
+            mainActivity.replaceFragment(kalendarFragment)
+        }
     }
 
     @SuppressLint("ResourceType")
@@ -93,7 +108,8 @@ class Calendar : Fragment() {
         } else {
             "Kein Eintrag vorhanden"
         }
-        return "$date : $entry";
+        val date_formatted = insertDot(choosed_date)
+        return "$date_formatted : $entry";
     }
 
     private fun saveEntry(date: String, event: String) {
@@ -108,26 +124,17 @@ class Calendar : Fragment() {
         editor.apply()
     }
 
-    private fun getDateFromCalendarView(calendarView: CalendarView): String {
-        val selectedDateInMillis = calendarView.date
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = selectedDateInMillis
+    private fun insertDot(date: String): String {
+        val firstDotIndex = 2
+        val secondDotIndex = 5
 
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
-        val month =
-            calendar.get(Calendar.MONTH) + 1 // Note: Months in the Calendar API are zero-based (0-11)
-        val year = calendar.get(Calendar.YEAR)
+        val stringBuilder = StringBuilder(date)
+        stringBuilder.insert(firstDotIndex, ".")
+        stringBuilder.insert(secondDotIndex, ".")
 
-        return String.format("%02d%02d%04d", dayOfMonth, month, year)
+        return stringBuilder.toString()
     }
 
-    private fun reloadFragment() {
-        val fragmentManager = requireActivity().supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
-        transaction.detach(this)
-        transaction.attach(this)
-        transaction.commit()
-    }
 
     companion object {
         private const val TAG = "Calendar"
