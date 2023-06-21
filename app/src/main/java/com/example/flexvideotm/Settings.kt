@@ -144,9 +144,6 @@ class Settings : Fragment() {
         dialogBuilder.setPositiveButton("Bestätigen") { dialog, _ ->
             val newUsername = usernameEditText.text.toString()
             val newPassword = passwordEditText.text.toString()
-            val credential = EmailAuthProvider
-                .getCredential("user@example.com", "password1234")
-
 
             auth!!.createUserWithEmailAndPassword(newUsername!!, newPassword!!)
                 .addOnCompleteListener(requireActivity()) { task ->  // <<< CHANGE WAS MADE HERE !

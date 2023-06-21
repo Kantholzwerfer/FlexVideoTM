@@ -8,45 +8,44 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_height="779dp"
+        android:background="@drawable/top_background"
         android:gravity="center"
-        android:background="@drawable/top_background">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <Button
             android:id="@+id/privacySettingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Privacy Settings"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/accountSettingsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account Settings"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            />
+            android:text="Datenschutz Erklärung" />
+
+        <Button
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="Login Daten ändern" />
 
         <Button
             android:id="@+id/darkModeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dark Mode aktivieren"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:text="Dark Mode aktivieren" />
 
         <Button
             android:id="@+id/ausloggen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Ausloggen"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/holo_red_light"
-            android:layout_marginBottom="16dp" />
+            android:text="Ausloggen" />
 
         <ImageView
             android:layout_width="wrap_content"
