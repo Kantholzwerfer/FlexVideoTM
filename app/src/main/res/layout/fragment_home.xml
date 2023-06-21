@@ -12,70 +12,75 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/idGraphView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="40dp"
-            android:background="#0878b6" />
-
-        <TextView
-            android:id="@+id/idTVHead2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:gravity="center"
-            android:padding="4dp"
-            android:text="Körperfettanteil"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/idGraphView2"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#0878b6"/>
+            <TextView
+                android:id="@+id/idTVHead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="Gewicht"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/idTVHead3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:gravity="center"
-            android:padding="4dp"
-            android:text="BMI"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/idGraphView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="0dp"
+                android:background="#0878b6" />
 
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/idGraphView3"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="32dp"
-            android:background="#0878b6"/>
+            <TextView
+                android:id="@+id/idTVHead2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="Körperfettanteil"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/idGraphView2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#0878b6" />
 
-    <TextView
-        android:id="@+id/idTVHead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="Gewicht"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/idTVHead3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="BMI"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/idGraphView3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="32dp"
+                android:background="#0878b6" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
