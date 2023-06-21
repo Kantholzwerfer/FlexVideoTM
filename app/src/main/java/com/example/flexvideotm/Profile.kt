@@ -9,11 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.ScrollView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -43,7 +39,7 @@ private lateinit var wunschfettanteilEdit: EditText
 private lateinit var buttonChangeProfile: Button
 private lateinit var buttonSaveProfile: Button
 private lateinit var scrollMaster: ScrollView
-private lateinit var homeFragment: Home
+//private lateinit var homeFragment: Home
 private lateinit var imageView: ImageView
 private lateinit var buttonChangeProfilePic: Button
 
@@ -208,7 +204,19 @@ class Profile : Fragment() {
     private fun dataEntrys()
     {
         //val homeActivity = requireActivity() as Home
-        homeFragment = Home()
+        //homeFragment = Home()
+        //val homeFragment = parentFragmentManager.findFragmentById(R.id.hometest) as? Home
+        //homeActivity.addDataPointToSeries(seriesWeight, 20.0, 80.0)
+        val mainActivity = requireActivity() as MainActivity
+        mainActivity.addDataPointToSeries(seriesWeight, 20.0, 85.0)
+//        if (homeFragment != null)
+//        {
+//            homeFragment.addDataPointToSeries(seriesWeight, 20.0, 80.0)
+//        }
+//        else
+//        {
+//            Toast.makeText(context, "Mist", Toast.LENGTH_SHORT).show()
+//        }
     }
 
     private fun saveData() {
@@ -232,7 +240,7 @@ class Profile : Fragment() {
             putString("WUNSCHFETTANTEIL_KEY", insertedWunschfettanteil)
         }.apply()
 
-        //dataEntrys()
+        dataEntrys()
 
         val mainActivity = requireActivity() as MainActivity
         val profileFragment = Profile() // Replace with the desired fragment

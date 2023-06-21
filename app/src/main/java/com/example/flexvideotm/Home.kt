@@ -25,7 +25,7 @@ import com.jjoe64.graphview.series.LineGraphSeries
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-public lateinit var seriesWeight : LineGraphSeries<DataPoint>
+//public lateinit var seriesWeight : LineGraphSeries<DataPoint>
 
 /**
  * A simple [Fragment] subclass.
@@ -54,27 +54,14 @@ class Home() : Fragment(), Parcelable {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    fun addDataPointToSeries(series: LineGraphSeries<DataPoint>, x: Double, y: Double) {
-        series.appendData(DataPoint(x, y), true, 100)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Graph für Gewicht
-        seriesWeight = LineGraphSeries<DataPoint>(
-            arrayOf(
-                DataPoint(0.0, 75.0),
-                DataPoint(1.0, 75.3),
-                DataPoint(2.0, 74.8),
-                DataPoint(3.0, 74.3),
-                DataPoint(4.0, 74.9),
-                DataPoint(5.0, 74.0),
-                DataPoint(6.0, 74.2),
-                DataPoint(7.0, 73.9),
-                DataPoint(10.0, 73.5)
-            )
-        )
+        //val mainActivity = requireActivity() as MainActivity
+
+
         val seriesWeightGoal = LineGraphSeries<DataPoint>(
             arrayOf(
                 DataPoint(0.0, 73.0),

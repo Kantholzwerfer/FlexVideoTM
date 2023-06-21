@@ -8,7 +8,10 @@
     android:background="@color/teal_200"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:tag="Home"
+    android:id="@+id/hometest"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 

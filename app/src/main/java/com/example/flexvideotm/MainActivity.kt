@@ -20,6 +20,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
+
+public lateinit var seriesWeight : LineGraphSeries<DataPoint>
 
 public class MainActivity : AppCompatActivity() {
 
@@ -43,6 +47,21 @@ public class MainActivity : AppCompatActivity() {
      //   }
 
         super.onCreate(savedInstanceState)
+
+        // Graph für Gewicht
+        seriesWeight = LineGraphSeries<DataPoint>(
+            arrayOf(
+                DataPoint(0.0, 75.0),
+                DataPoint(1.0, 75.3),
+                DataPoint(2.0, 74.8),
+                DataPoint(3.0, 74.3),
+                DataPoint(4.0, 74.9),
+                DataPoint(5.0, 74.0),
+                DataPoint(6.0, 74.2),
+                DataPoint(7.0, 73.9),
+                DataPoint(10.0, 73.5)
+            )
+        )
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -75,6 +94,10 @@ public class MainActivity : AppCompatActivity() {
 //                onResult = { uri -> selectedImageUri = uri }
 //            )
 //        }
+    }
+
+    public fun addDataPointToSeries(series: LineGraphSeries<DataPoint>, x: Double, y: Double) {
+        series.appendData(DataPoint(x, y), true, 100)
     }
 
     public fun replaceFragment(fragment : Fragment){
