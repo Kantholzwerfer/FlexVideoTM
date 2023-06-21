@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:text="Account Settings"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            />
 
         <Button
             android:id="@+id/darkModeButton"
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Ausloggen"
+            android:background="@android:color/holo_red_light"
             android:layout_marginBottom="16dp" />
 
         <ImageView

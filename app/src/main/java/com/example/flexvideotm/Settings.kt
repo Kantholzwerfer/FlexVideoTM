@@ -13,21 +13,25 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.example.flexvideotm.databinding.ActivityMainBinding
 import com.example.flexvideotm.databinding.FragmentSettingsBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 
+
 class Settings : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var auth: FirebaseAuth
+    private lateinit var user: FirebaseUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,7 +46,7 @@ class Settings : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
-
+        auth = Firebase.auth
         val ausloggbtn : Button = view.findViewById<Button>(R.id.ausloggen)
         val intent = Intent(this@Settings.requireContext(), Login::class.java)
         ausloggbtn.setOnClickListener{
@@ -140,8 +144,20 @@ class Settings : Fragment() {
         dialogBuilder.setPositiveButton("Bestätigen") { dialog, _ ->
             val newUsername = usernameEditText.text.toString()
             val newPassword = passwordEditText.text.toString()
+            val credential = EmailAuthProvider
+                .getCredential("user@example.com", "password1234")
 
-            // Code, um die neuen Benutzerdaten zu verarbeiten
+
+            auth!!.createUserWithEmailAndPassword(newUsername!!, newPassword!!)
+                .addOnCompleteListener(requireActivity()) { task ->  // <<< CHANGE WAS MADE HERE !
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        println("createUserWithEmail:success")
+                        val user = auth?.currentUser
+                    } else {
+                        println("Authentication failed.")
+                    }
+                }
 
             Toast.makeText(requireContext(), "Benutzername: $newUsername, Passwort: $newPassword", Toast.LENGTH_SHORT).show()
 
